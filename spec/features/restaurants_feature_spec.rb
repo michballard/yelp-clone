@@ -19,3 +19,28 @@ describe 'restaurants' do
 		end
 	end
 end
+
+describe "creating restaurants" do 
+	it "prompts user to fill out a form, then displays the new restaurant" do 
+    visit '/restaurants'
+    click_link 'Add a restaurant'
+    fill_in 'Name', with: 'KFC'
+    click_button 'Create Restaurant'
+    expect(page).to have_content 'KFC'
+    expect(current_path).to eq '/restaurants'
+ 	end
+end
+
+describe 'editing restaurants' do 
+	before do 
+		Restaurant.create(name: 'KFC')
+	end
+	it 'can allow a user to edit a restaurant' do 
+		visit '/restaurants'
+		click_link 'Edit KFC'
+		fill_in 'Name', with: 'Kentucky fried chicken'
+		click_button 'Update Restaurant'
+		expect(page).to have_content 'Kentucky fried chicken'
+		expect(current_path).to eq '/restaurants'
+	end
+end
