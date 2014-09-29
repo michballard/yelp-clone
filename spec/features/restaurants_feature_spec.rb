@@ -56,3 +56,17 @@ describe 'deleting restaurants' do
     expect(page).to have_content 'Restaurant deleted successful'
 	end 
 end 
+
+describe 'viewing a restaurant' do 
+	before do 
+		@restaurant = Restaurant.create(name: 'KFC',  
+											description: 'A restaurant that sells fried chicken')
+	end
+	it 'can view a restaurant when a user clicks the restaurant name link' do 
+    visit '/restaurants'
+    click_link 'KFC'
+    expect(page).not_to have_content 'Add a restaurant'
+    expect(current_path).to eq restaurant_path(@restaurant)
+    expect(page).to have_content 'A restaurant that sells fried chicken'
+  end
+end
