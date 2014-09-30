@@ -68,5 +68,6 @@ describe 'viewing a restaurant' do
     expect(page).not_to have_content 'Add a restaurant'
     expect(current_path).to eq restaurant_path(@restaurant)
     expect(page).to have_content 'A restaurant that sells fried chicken'
+    # expect(currentpath).to match(/restaurants\/\d/)
   end
 end
