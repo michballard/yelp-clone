@@ -21,27 +21,43 @@ describe 'restaurants' do
 end
 
 describe "creating restaurants" do 
-	it "prompts user to fill out a form, then displays the new restaurant" do 
-    visit '/restaurants'
-    click_link 'Add a restaurant'
-    fill_in 'Name', with: 'KFC'
-    click_button 'Create Restaurant'
-    expect(page).to have_content 'KFC'
-    expect(current_path).to eq '/restaurants'
+	context 'a valid restaurant' do 
+		it "prompts user to fill out a form, then displays the new restaurant" do 
+	    visit '/restaurants'
+	    click_link 'Add a restaurant'
+	    fill_in 'Name', with: 'KFC'
+	    click_button 'Create Restaurant'
+	    expect(page).to have_content 'KFC'
+	    expect(current_path).to eq '/restaurants'
+		end
+
+		it "with a location" do
+			visit '/restaurants'
+	    click_link 'Add a restaurant'
+	    fill_in 'Name', with: 'KFC'
+			fill_in 'Location', with: 'Old Street'
+			fill_in 'Postcode', with: 'EC2'
+			fill_in 'Description', with: 'A restaurant that sells chicken'
+	    click_button 'Create Restaurant'
+	    expect(page).to have_content('KFC')
+	    expect(page).to have_content('Old Street')
+	    expect(page).to have_content('EC2')
+	    expect(current_path).to eq restaurants_path
+		end
 	end
 
-	it "with a location" do
-		visit '/restaurants'
-    click_link 'Add a restaurant'
-    fill_in 'Name', with: 'KFC'
-		fill_in 'Location', with: 'Old Street'
-		fill_in 'Postcode', with: 'EC2'
-		fill_in 'Description', with: 'A restaurant that sells chicken'
-    click_button 'Create Restaurant'
-    expect(page).to have_content('KFC')
-    expect(page).to have_content('Old Street')
-    expect(page).to have_content('EC2')
-    expect(current_path).to eq restaurants_path
+	context 'an invalid restaurant' do 
+		it 'does not let you submit without a name that is too short' do 
+			visit '/restaurants'
+			click_link 'Add a restaurant'
+			fill_in 'Name', with: 'ab'
+			fill_in 'Location', with: ''
+			fill_in 'Postcode', with: ''
+			fill_in 'Description', with: ''
+			click_button 'Create Restaurant'
+			expect(page).not_to have_css 'h2', text: 'kf'
+			expect(page).to have_content 'error'
+		end
 	end
 end
 
