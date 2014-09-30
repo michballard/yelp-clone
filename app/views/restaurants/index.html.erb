@@ -1,6 +1,8 @@
 <% if@restaurants.any? %>
   <% @restaurants.each do |restaurant| %>
-    <h2><a href="<%= restaurant_path(restaurant) %>"><%= restaurant.name %></h2>
+    <h2><a href="<%= restaurant_path(restaurant) %>"><%= restaurant.name %></a></h2>
+    <p><%= restaurant.location %></p>
+    <p><%= restaurant.postcode %></p>
     <%= link_to "Edit #{restaurant.name}",
 						    edit_restaurant_path(restaurant) %>
     <%= link_to "Delete #{restaurant.name}",
