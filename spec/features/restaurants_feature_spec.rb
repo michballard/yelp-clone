@@ -28,7 +28,19 @@ describe "creating restaurants" do
     click_button 'Create Restaurant'
     expect(page).to have_content 'KFC'
     expect(current_path).to eq '/restaurants'
- 	end
+	end
+
+	it "with a location" do
+		visit '/restaurants'
+    click_link 'Add a restaurant'
+    fill_in 'Name', with: 'KFC'
+		fill_in 'Location', with: 'Old Street'
+		fill_in 'Postcode', with: 'EC2'
+		fill_in 'Description', with: 'A restaurant that sells chicken'
+    click_button 'Create Restaurant'
+    expect(page).to have_content('KFC')
+    expect(current_path).to eq restaurants_path
+	end
 end
 
 describe 'editing restaurants' do 
@@ -69,5 +81,6 @@ describe 'viewing a restaurant' do
     expect(current_path).to eq restaurant_path(@restaurant)
     expect(page).to have_content 'A restaurant that sells fried chicken'
     # expect(currentpath).to match(/restaurants\/\d/)
-  end
+	end
+
 end
