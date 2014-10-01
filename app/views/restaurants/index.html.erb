@@ -13,7 +13,8 @@
 		<ul>
       <% restaurant.reviews.each do |review| %>
 	      <li>
-	        <%= "#{review.thoughts} (#{review.rating})" %>
+	        <%= "#{review.thoughts}" %> 
+	        <%= star_rating(review.rating) %>
 	      </li>
         <span class="italicise">posted: <%= time_ago_in_words(review.created_at) %> ago</span>
       <% end %>
