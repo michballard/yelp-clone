@@ -13,5 +13,10 @@ describe ReviewsHelper, :type => :helper do
     it 'returns 3 black stars and 2 white stars for rating of 3' do 
     	expect(helper.star_rating(3)).to eq '★★★☆☆'
     end
+
+    it 'rounds to the nearest star for non whole numbers' do 
+    	expect(helper.star_rating(3.5)).to eq '★★★★☆'
+    end
+    
   end
 end
