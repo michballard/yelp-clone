@@ -27,4 +27,9 @@ require 'rails_helper'
 	    expect(page).to have_content('Average rating: ★★★★☆')
 		end 
 
+		it 'displays a timestamp' do 
+      leave_review('So so', '3')
+      expect(page).to have_content('posted: less than a minute ago')
+		end
+
 end
