@@ -5,3 +5,20 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Restaurant.destroy_all
+Review.destroy_all
+
+kfc = Restaurant.create(:name => 'KFC', :location => 'Old Street', :postcode => 'EC1', :description => 'A place that sells fried chicken')
+kfc.reviews.create(rating: 1, thoughts: 'bad')
+kfc.reviews.create(rating: 2, thoughts: 'ok')
+kfc.reviews.create(rating: 3, thoughts: 'so so')
+kfc.reviews.create(rating: 4, thoughts: 'good')
+kfc.reviews.create(rating: 5, thoughts: 'fantastic')
+
+jamies = Restaurant.create(:name => "Jamie’s Italian", :location => 'Old Street', :postcode => 'EC1', :description => 'A place that sells Italian food')
+jamies.reviews.create(rating: 1, thoughts: 'really bad')
+jamies.reviews.create(rating: 2, thoughts: 'really ok')
+jamies.reviews.create(rating: 3, thoughts: 'really so so')
+jamies.reviews.create(rating: 4, thoughts: 'really good')
+jamies.reviews.create(rating: 5, thoughts: 'really fantastic')

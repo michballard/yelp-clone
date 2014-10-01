@@ -13,6 +13,8 @@
 	      <li>
 	        <%= "#{review.thoughts}" %> 
 	        <%= star_rating(review.rating) %>
+	        <%= link_to 'Endorse this review', review_endorsements_path(review), method: :post %>
+	        <%= review.endorsements.count %> endorsement 
 	      </li>
         <span class="italicise">posted: <%= time_ago_in_words(review.created_at) %> ago</span>
       <% end %>

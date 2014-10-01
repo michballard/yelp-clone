@@ -39,10 +39,10 @@ describe "creating restaurants" do
 			fill_in 'Postcode', with: 'EC2'
 			fill_in 'Description', with: 'A restaurant that sells chicken'
 	    click_button 'Create Restaurant'
+	    click_link 'KFC'
 	    expect(page).to have_content('KFC')
 	    expect(page).to have_content('Old Street')
 	    expect(page).to have_content('EC2')
-	    expect(current_path).to eq restaurants_path
 		end
 	end
 
