@@ -37,6 +37,15 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+# Adding gem for authentication of users
+gem 'devise'
+
+# Adding gem for Facebook authorisation
+gem 'omniauth-facebook'
+
+# Adding gem for Twitter authorisation
+gem 'omniauth-twitter'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
