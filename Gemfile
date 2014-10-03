@@ -46,6 +46,12 @@ gem 'omniauth-facebook'
 # Adding gem for Twitter authorisation
 gem 'omniauth-twitter'
 
+# Adding pictures
+gem 'paperclip', "~> 4.2"
+
+# Adding Amazon web services
+gem 'aws-sdk', '~> 1.5.7'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

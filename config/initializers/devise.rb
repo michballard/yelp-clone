@@ -236,7 +236,7 @@ Devise.setup do |config|
   config.omniauth :facebook, Rails.application.secrets.facebook_app_id, Rails.application.secrets.facebook_app_secret
 
   require 'omniauth-twitter'
-  config.omniauth :twitter, "5mJZCfYlAWsbi2L5z7GM2BwHA", "JmdLhKI1M96gAloe8IDyDENDAWstkCrzjjAfhfy5N6WZmvXRbN"
+  config.omniauth :twitter, Rails.application.secrets.twitter_app_id, Rails.application.secrets.twitter_app_secret
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
