@@ -19,3 +19,8 @@
 	font-size: 80%;
 	color: gray;
 }
+
+#map {
+  width: 700px;
+  height: 500px;
+}

@@ -1,10 +1,6 @@
 <%= image_tag @restaurant.image.url(:medium) %> 
 
-
-
-
 <h2><%= @restaurant.name %></h2>
-<p><%= @restaurant.location %>, <%= @restaurant.postcode %></p>
 <p><%= @restaurant.description %></p>
 
 <h3>Reviews</h3>
@@ -18,4 +14,13 @@
   <% end %>
 </ul>
 
-<%= link_to "Go back", restaurants_path %>
+<h3>Location</h3>
+<p><%= @restaurant.location %>, <%= @restaurant.postcode %></p>
+
+<% if @restaurant.lat && @restaurant.long %>
+	<div id="map"></div>
+	<div class='lat' style='display:none'><%= @restaurant.lat %></div>
+	<div class='lng' style='display:none'><%= @restaurant.long %></div>
+<% end %>
+
+<div><%= link_to "Go back", restaurants_path %></div>
