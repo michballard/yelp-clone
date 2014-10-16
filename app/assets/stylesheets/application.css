@@ -24,3 +24,11 @@
   width: 700px;
   height: 500px;
 }
+
+h2 {
+	font-family: Lobster, sans-serif;
+}
+
+body {
+	font-family: Droid Sans, sans-serif;
+}
