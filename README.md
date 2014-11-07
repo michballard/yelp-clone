@@ -34,6 +34,18 @@ Clone this repository:
 ```shell
 $ git clone git@github.com:michballard/yelp-clone.git
 ```
+Install gems:
+```shell
+$ bundle install
+```
+
+Create database repositories:
+```
+$ psql
+# CREATE DATABASE "yelp_clone_test";
+# CREATE DATABASE "yelp_clone_development";
+# \q
+```
 
 Start server from command line:
 ```shell
